@@ -10,12 +10,12 @@ def run_resolution_script(resolution):
             "1080p": "1080p.py",
             "1440p": "1440p.py",
             "best": "best.py",
-            "worst": "worst.py"
+            "mp3": "mp3.py"
         }
 
         # Vérifier si la résolution est valide
         if resolution not in resolution_scripts:
-            print(f"Résolution {resolution} non valide. Choisissez parmi 720p, 1080p, 1440p, best, ou worst.")
+            print(f"Résolution {resolution} non valide. Choisissez parmi 720p, 1080p, 1440p, best, ou format mp3.")
             sys.exit(1)
 
         # Lancer le script correspondant à la résolution
@@ -31,7 +31,7 @@ def run_resolution_script(resolution):
 def main():
     """Point d'entrée du programme."""
     # Demander la résolution à l'utilisateur
-    resolution = input("Entrez la résolution (720p, 1080p, 1440p, best, worst) : ").strip().lower()
+    resolution = input("Entrez la résolution (720p, 1080p, 1440p, best, mp3) : ").strip().lower()
 
     # Lancer le script correspondant à la résolution
     run_resolution_script(resolution)
