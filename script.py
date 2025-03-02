@@ -1,16 +1,32 @@
 import subprocess
+import os
+import platform
 
 def download_youtube_video():
     try:
         # Demander l'URL de la vidéo
         url = input("Entrez l'URL de la vidéo YouTube : ").strip()
-        
-        # Commande yt-dlp pour télécharger le meilleur fichier MP4 disponible
+
+        # Si pas d'URL fournie, télécharge cette vidéo par défaut (Wii Party Soundtrack)
+        if not url:
+            url = "https://youtu.be/fzepGtfHL9A?si=Hl0fUqO4KVCcmxi7"
+
+        # Détecter le système d'exploitation et obtenir le chemin du dossier "Downloads"
+        if platform.system() == "Darwin" or platform.system() == "Linux":
+            # Sur macOS et Linux, utiliser le dossier Downloads dans le répertoire utilisateur
+            downloads_folder = os.path.expanduser("~/Downloads")
+        elif platform.system() == "Windows":
+            # Sur Windows, utiliser le chemin de l'environnement de l'utilisateur
+            downloads_folder = os.path.join(os.environ["USERPROFILE"], "Downloads")
+        else:
+            raise Exception("Système d'exploitation non pris en charge")
+
+        # Commande yt-dlp pour télécharger le meilleur fichier MP4 disponible dans le dossier Downloads
         command = [
             "yt-dlp",
             "-S", "height:720",  # Prioriser les résolutions à partir de 720p
             "-f", "best[ext=mp4]",  # Télécharger le meilleur flux MP4 (vidéo + audio combinés)
-            "--output", "%(title)s.%(ext)s",  # Utiliser le titre de la vidéo pour nommer le fichier
+            "--output", os.path.join(downloads_folder, "%(title)s.%(ext)s"),  # Télécharger dans le dossier Downloads
             url
         ]
         
@@ -25,7 +41,3 @@ def download_youtube_video():
 
 if __name__ == "__main__":
     download_youtube_video()
-
-#https://youtu.be/fzepGtfHL9A?si=Hl0fUqO4KVCcmxi7
-
-print("Hello, World!")
