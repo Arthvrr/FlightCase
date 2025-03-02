@@ -1,2 +1,3 @@
-- améliorer la qualité de la vidéo téléchargée
 - tester si la location de la vidéo téléchargée marche aussi sur Ubuntu (VM UTM)
+- autoriser de télécharger plusieurs fois le même fichier (rajouter un xxx 2)
+- fix le worst qui ne marche pas
