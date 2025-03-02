@@ -1,3 +1,5 @@
 .DS_Store
 .vscode
 *.mp4
+*.mp3
+tmp.py
