@@ -1,2 +1,4 @@
-- tester si la location de la vidéo téléchargée marche aussi sur Ubuntu (VM UTM)
-- autoriser de télécharger plusieurs fois le même fichier (rajouter un xxx 2)
+- gérer l'overwrite si fichier déjà téléchargé avec autre résolution
+- faire icone sur le Dock personnalisé
+- afficher poucentage de téléchargement sur l'interface / état du terminal
+- styliser un peu l'interface
