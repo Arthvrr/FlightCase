@@ -23,7 +23,14 @@ def run_resolution_script(resolution, video_url):
 
         script_name = resolution_scripts[resolution]
         print(f"Lancement du téléchargement pour la résolution {resolution} avec l'URL {video_url}...")
-        subprocess.run(["python3", script_name, video_url], check=True)
+
+        # Run the script, automatically answer 'y' for overwriting
+        subprocess.run(
+            ["python3", script_name, video_url, "--force-overwrites", "--no-continue"],
+            check=True,
+            input="y\n",  # This will send "y" to FFmpeg to overwrite the file
+            text=True  # Ensures input is treated as a string
+        )
 
     except subprocess.CalledProcessError as e:
         messagebox.showerror("Erreur", f"Erreur lors de l'exécution du script {script_name}: {e}")
@@ -79,5 +86,3 @@ def create_gui():
 
 if __name__ == "__main__":
     create_gui()
-
-

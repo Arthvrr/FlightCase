@@ -104,7 +104,6 @@ def download_youtube_video(url):
         output_path = os.path.join(downloads_folder, "%(title)s.%(ext)s")
         command = [
             "yt-dlp",
-            "--force-overwrites",
             "--output", output_path,
             url
         ]

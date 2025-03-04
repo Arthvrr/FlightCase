@@ -31,7 +31,6 @@ def download_youtube_video(url):
         command = [
             "yt-dlp",
             "-f", "bestvideo[height<=720]+bestaudio/best[height<=720]",
-            "--force-overwrites",
             "--output", output_path,
             url
         ]
