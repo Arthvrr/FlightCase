@@ -1,4 +1,2 @@
-1. gérer l'overwrite si fichier déjà téléchargé avec autre résolution
-2. afficher état du terminal dans l'app
-3. faire icone sur le Dock personnalisé avec py2app
-4. styliser un peu l'interface
+1. faire icone sur le Dock personnalisé avec py2app
+2. styliser un peu l'interface
